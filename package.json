@@ -4,7 +4,7 @@
   "description": "Example of Backendless custom business logic with Babel decorators",
   "scripts": {
     "build": "npx babel ./src --out-dir app",
-    "deploy": "node scripts/deploy.js",
+    "deploy": "npx babel ./src --out-dir app && node scripts/deploy.js",
     "coderunner": "node scripts/coderunner.js"
   },
   "devDependencies": {
