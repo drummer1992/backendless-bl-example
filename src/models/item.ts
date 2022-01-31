@@ -1,8 +1,8 @@
-import { Type, Property } from 'backendless-coderunner/lib/server-code/model/decorators'
+import {Type, Property} from 'backendless-coderunner/lib/server-code/model/decorators'
 import PersistenceItem from "./base";
 
 @Type
-class ShoppingItem extends PersistenceItem {
+export default class ShoppingItem extends PersistenceItem {
   @Property('String')
   objectId
   @Property('String')
@@ -12,5 +12,3 @@ class ShoppingItem extends PersistenceItem {
   @Property('Number')
   quantity
 }
-
-module.exports = ShoppingItem

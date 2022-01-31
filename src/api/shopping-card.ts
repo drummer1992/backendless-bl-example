@@ -38,6 +38,7 @@ export default class OrderService {
 
     order.name = name
 
+    // @ts-ignore
     return order.save()
   }
 
@@ -49,12 +50,14 @@ export default class OrderService {
 
   @Get('/orders')
   getOrders() {
+    // @ts-ignore
     return Order.find('1=1')
   }
 
   @Post('/orders/{orderId}/items')
   @Param('Array.<ShoppingItem>', 'items')
   async addItems(items) {
+    // @ts-ignore
     const order = await Order.findById(this.request.pathParams.orderId, ['items'], ['objectId'])
 
     order.items = await Promise.all(items.map(item => item.save()))
@@ -68,6 +71,7 @@ export default class OrderService {
   @Param('UserDto', 'user')
   @Param('Number', 'amount')
   async purchase(user, amount) {
+    // @ts-ignore
     const order = await Order.findById(this.request.pathParams.orderId)
 
     if (amount > 0) {

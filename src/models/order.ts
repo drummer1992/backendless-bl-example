@@ -13,6 +13,7 @@ export default class Order extends PersistenceItem {
   items
 
   static async findByName(name) {
+    // @ts-ignore
     const order = await this.find({ where: `name='${name}'`, relations: ['items'] }).then(res => res[0])
 
     if (!order) {
