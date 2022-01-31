@@ -1,18 +1,19 @@
 import { Type, Property } from 'backendless-coderunner/lib/server-code/model/decorators'
 import PersistenceItem from "./base";
+import ShoppingItem from "./item";
 
 @Type
 export default class Order extends PersistenceItem {
   @Property('String')
-  objectId
+  objectId: string
   @Property('String')
-  name
+  name: string
   @Property('Boolean')
-  paid
+  paid: boolean
   @Property('ShoppingItem[]')
-  items
+  items: ShoppingItem[]
 
-  static async findByName(name) {
+  static async findByName(name: string) {
     // @ts-ignore
     const order = await this.find({ where: `name='${name}'`, relations: ['items'] }).then(res => res[0])
 

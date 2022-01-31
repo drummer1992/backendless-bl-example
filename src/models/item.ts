@@ -4,11 +4,11 @@ import PersistenceItem from "./base";
 @Type
 export default class ShoppingItem extends PersistenceItem {
   @Property('String')
-  objectId
+  objectId: string
   @Property('String')
-  product
+  product: string
   @Property('Number')
-  price
+  price: number
   @Property('Number')
-  quantity
+  quantity: number
 }
