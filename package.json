@@ -1,7 +1,7 @@
 {
   "name": "decorated-backendless-service",
   "version": "1.0.0",
-  "description": "Example of Backendless custom business logic with Babel decorators",
+  "description": "Example of Backendless custom business logic with decorators",
   "scripts": {
     "build": "npx babel ./src --out-dir app",
     "deploy": "npx babel ./src --out-dir app && node scripts/deploy.js",
