@@ -1,4 +1,4 @@
-# Example of Backendless business logic with experimental decorators powered by [Babel](https://github.com/babel/babel)  
+# Example of Backendless business logic with experimental decorators
 
 ## Getting Started
 
