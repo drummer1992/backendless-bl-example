@@ -1,0 +1,27 @@
+{
+  "backendless": {
+    "apiUrl": "http://localhost:9000",
+    "repoPath": ""
+  },
+  "workers": {
+    "cache": true,
+    "concurrent": 4,
+    "lowPriorityThreshold": 1,
+    "heartbeat": {
+      "interval": 5,
+      "timeout": 1000000
+    }
+  },
+  "app": {
+    "id": "",
+    "apiKey": "",
+    "model": "default",
+    "exclude": [
+      "+(.git|.github|.idea|scripts|deploy|src)/**",
+      "+(LICENSE|*.md|*.json|.*)",
+      "**/+(.DS_Store|*.test.js)"
+    ]
+  },
+  "deploy": {},
+  "keepZip": false
+}

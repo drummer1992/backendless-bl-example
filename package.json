@@ -1,0 +1,29 @@
+{
+  "name": "decorated-backendless-service",
+  "version": "1.0.0",
+  "description": "Example of Backendless custom business logic with Babel decorators",
+  "scripts": {
+    "build": "npx babel ./src --out-dir app",
+    "deploy": "node scripts/deploy.js",
+    "coderunner": "node scripts/coderunner.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/eslint-parser": "^7.13.8",
+    "@babel/node": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.13.5",
+    "@babel/plugin-transform-runtime": "^7.16.10",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/register": "^7.13.8",
+    "eslint": "^7.21.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.3",
+    "backendless": "^6.3.5",
+    "backendless-coderunner": "https://github.com/drummer1992/JS-Code-Runner/tree/decorators"
+  },
+  "keywords": [],
+  "author": "Andrii Varlamov",
+  "license": "ISC"
+}
