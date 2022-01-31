@@ -1,7 +1,7 @@
 {
   "name": "decorated-backendless-service",
   "version": "1.0.0",
-  "description": "Example of Backendless custom business logic with Babel decorators",
+  "description": "Example of Backendless custom business logic with decorators",
   "scripts": {
     "build": "tsc",
     "deploy": "tsc && node scripts/deploy.js",
