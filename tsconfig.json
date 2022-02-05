@@ -5,7 +5,8 @@
     "module": "CommonJS",
     "outDir": "app",
     "moduleResolution": "Node",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src/**/*.ts"

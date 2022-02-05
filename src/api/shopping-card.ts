@@ -1,39 +1,55 @@
-import { Get, Post, Service, Param, Property, Type } from 'backendless-coderunner/lib/server-code/model/decorators'
+import 'reflect-metadata'
+import {
+  Get,
+  Post,
+  Service,
+  Type,
+  Param as Param,
+  Property as Prop,
+} from 'backendless-coderunner/lib/server-code/model/decorators'
 import Order from "../models/order";
 import ShoppingItem from "../models/item";
 
 @Type
+class Pet {
+  @Prop()
+  name: string
+}
+
+@Type
 class CredentialsDto {
-  @Property('String')
+  @Prop()
   email: string
-  @Property('String')
+  @Prop()
   password: string
+  @Prop([Pet])
+  pets: Pet[]
 }
 
 @Type
 class HobbyDto {
-  @Property('String')
+  @Prop()
   name: string
-  @Property('Boolean')
+  @Prop()
   isFavorite: boolean
 }
 
 @Type
 class UserDto {
-  @Property('String')
+  @Prop()
   name: string
-  @Property('Number')
-  age: string
-  @Property('CredentialsDto')
+  @Prop()
+  age: number
+  @Prop()
   credentials: CredentialsDto
-  @Property('Array.<HobbyDto>')
+  @Prop([HobbyDto])
   hobbies: HobbyDto[]
 }
 
 @Service
 export default class OrderService {
   @Post('/orders')
-  @Param('String', 'name')
+  @Param(String, 'name')
   createOrder(name: string) {
     const order = new Order()
 
@@ -44,7 +60,7 @@ export default class OrderService {
   }
 
   @Post('/orders/find')
-  @Param('String', 'name')
+  @Param(String, 'name')
   findOrderByName(name: string) {
     return Order.findByName(name)
   }
@@ -56,21 +72,21 @@ export default class OrderService {
   }
 
   @Post('/orders/{orderId}/items')
-  @Param('Array.<ShoppingItem>', 'items')
+  @Param([ShoppingItem], 'items')
   async addItems(items: ShoppingItem[]) {
     // @ts-ignore
     const order = await Order.findById(this.request.pathParams.orderId, ['items'], ['objectId'])
     // @ts-ignore
     order.items = await Promise.all(items.map(item => item.save()))
 
-    await order.saveWithRelations({ stale: ['items'] })
+    await order.saveWithRelations({stale: ['items']})
 
     return order
   }
 
   @Post('/orders/{orderId}')
-  @Param('UserDto', 'user')
-  @Param('Number', 'amount')
+  @Param(UserDto, 'user')
+  @Param(Number, 'amount')
   async purchase(user: UserDto, amount: number) {
     // @ts-ignore
     const order = await Order.findById(this.request.pathParams.orderId) as Order

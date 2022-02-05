@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "backendless": "^6.3.5",
-    "backendless-coderunner": "https://github.com/drummer1992/JS-Code-Runner/tree/decorators"
+    "backendless-coderunner": "git+https://github.com/drummer1992/JS-Code-Runner.git#decorators-stage-2",
+    "reflect-metadata": "^0.1.13"
   },
   "keywords": [],
   "author": "Andrii Varlamov",
